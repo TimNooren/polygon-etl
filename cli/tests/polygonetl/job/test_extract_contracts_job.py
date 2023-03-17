@@ -37,7 +37,10 @@ def read_resource(resource_group, file_name):
     return tests.resources.read_resource([RESOURCE_GROUP, resource_group], file_name)
 
 
-@pytest.mark.parametrize("resource_group", ["block_with_multiple_contract_types"])
+@pytest.mark.parametrize("resource_group", [
+    "block_with_multiple_contract_types",
+    "empty_bytecode",
+])
 def test_extract_contracts_job(tmpdir, resource_group):
     output_file = str(tmpdir.join("actual_contracts.csv"))
 
